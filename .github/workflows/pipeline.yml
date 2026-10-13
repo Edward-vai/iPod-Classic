@@ -1,0 +1,19 @@
+name: nombre del pipeline
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  echo-job:
+    name: Run Echo Commands
+    runs-on: self-hosted
+ 
+    steps:
+      - name: Step 1 - B  asic Echo
+        run: echo "Hello! This is a simple GitHub Actions pipeline."
+      - name: Step 2 - Build Docker Image
+        run: docker build -t facil .
+
+      - name: Step 3 - Echo Current Date
+        run: 'echo "The current date and time is: $(date)"'
